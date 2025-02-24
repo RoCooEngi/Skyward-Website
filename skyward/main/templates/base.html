@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Skyward{% endblock %}</title>
+    <style>
+        /* Общие стили для body */
+        body {
+            margin: 0; /* Убираем отступы по умолчанию */
+            font-family: Arial, sans-serif; /* Шрифт для всей страницы */
+            display: flex;
+            flex-direction: column; /* Располагаем элементы в колонку */
+            min-height: 100vh; /* Минимальная высота страницы — 100% высоты экрана */
+        }
+
+        /* Стили для шапки и подвала */
+        .header, .footer {
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Градиентный фон */
+            color: white; /* Белый текст */
+            padding: 10px 20px; /* Внутренние отступы */
+        }
+
+        /* Стили для навигационной панели */
+        .nav {
+            display: flex;
+            align-items: center; /* Выравниваем элементы по вертикали */
+            gap: 50px; /* Расстояние между логотипом и ссылками */
+        }
+
+        /* Стили для логотипа */
+        .nav img {
+            height: 50px; /* Высота логотипа */
+            margin-right: 50px; /* Увеличиваем отступ справа от логотипа */
+        }
+
+        /* Стили для ссылок в навигационной панели */
+        .nav a {
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 18px; /* Размер шрифта */
+            white-space: nowrap; /* Запрещаем перенос текста */
+        }
+
+        /* Стили для основного контента */
+        .content {
+            background-color:rgb(255, 255, 255); /* Серый фон */
+            padding: 20px; /* Внутренние отступы */
+            flex: 1; /* Контент занимает все доступное пространство */
+        }
+
+        /* Стили для подвала */
+        .footer {
+            text-align: center; /* Центрируем текст */
+            padding: 20px; /* Внутренние отступы */
+            position: fixed; /* Фиксируем подвал */
+            bottom: 0; /* Прижимаем к низу */
+            width: 100%; /* Занимаем всю ширину */
+        }
+
+        /* Стили для ссылок в подвале */
+        .footer a {
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            margin: 0 10px; /* Отступы между ссылками */
+        }
+
+        /* Основной контейнер для текста и видео */
+        .content-container {
+            display: flex;
+            flex-direction: row; /* По умолчанию элементы в строку */
+            align-items: center; /* Выравниваем по вертикали */
+            justify-content: space-between; /* Распределяем пространство между элементами */
+            gap: 70px; /* Расстояние между текстом и видео */
+            padding: 20px;
+            max-width: 1500px; /* Ограничиваем максимальную ширину */
+            margin: 0 auto; /* Центрируем контейнер */
+            width: 100%; /* Занимаем всю доступную ширину */
+            margin-top: 50px; /* Добавляем отступ сверху */
+        }
+
+        /* Контейнер для текста */
+        .text-container {
+            flex: 1; /* Текст занимает доступное пространство */
+            text-align: center; /* Центрируем текст */
+            min-width: 300px; /* Минимальная ширина текстового контейнера */
+        }
+
+        /* Контейнер для видео */
+        .video-container {
+            flex: 1; /* Видео занимает доступное пространство */
+            max-width: 800px; /* Максимальная ширина видео */
+            min-width: 300px; /* Минимальная ширина видео */
+        }
+
+        /* Стили для видео */
+        video {
+            width: 100%; /* Видео занимает всю ширину контейнера */
+            height: auto; /* Высота автоматически подстраивается */
+            border-radius: 10px; /* Закругленные углы */
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 768px) {
+            .nav {
+                flex-wrap: wrap; /* Разрешаем перенос элементов */
+                justify-content: center; /* Центрируем элементы */
+                gap: 20px; /* Уменьшаем расстояние между элементами */
+            }
+            .nav img {
+                margin-right: 0; /* Убираем отступ справа от логотипа */
+            }
+            .nav a {
+                font-size: 16px; /* Уменьшаем размер шрифта */
+            }
+            .content-container {
+                flex-direction: column; /* Элементы в колонку на мобильных */
+                gap: 20px; /* Уменьшаем расстояние между элементами */
+                margin-top: 20px; /* Уменьшаем отступ сверху для мобильных */
+            }
+            .text-container {
+                min-width: unset; /* Убираем минимальную ширину */
+            }
+            .video-container {
+                max-width: 100%; /* Видео занимает всю ширину */
+                min-width: unset; /* Убираем минимальную ширину */
+            }
+        }
+
+        /* Стили для десктопов */
+        @media (min-width: 769px) {
+            /* Увеличиваем шрифт текста */
+            .text-container h1 {
+                font-size: 36px; /* Размер заголовка */
+            }
+            .text-container p {
+                font-size: 18px; /* Размер основного текста */
+            }
+
+            /* Увеличиваем размер видео */
+            .video-container {
+                max-width: 800px; /* Увеличиваем максимальную ширину видео */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <nav class="nav">
+            <!-- Логотип как ссылка на главную страницу -->
+            <a href="{% url 'home' %}">
+                <img src="{% static 'logo.png' %}" alt="Logo">
+            </a>
+            <!-- Ссылки в навигационной панели -->
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="#">Решения</a>
+            <a href="#">О нас</a>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div>Skyward &copy; {% now "Y" %}</div>
+        <a href="#">Политика конфиденциальности</a>
+    </footer>
+</body>
+</html>
