@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block content %}
+<div class="video-wrapper">
+    <video autoplay id="memeVideo" controls>
+        <source src="{% static 'meme.mp4' %}" type="video/mp4">
+        Ваш браузер не поддерживает видео тег.
+    </video>
+</div>
+
+<style>
+    /* Основной контейнер для видео */
+    .video-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 1500px; /* Максимальная ширина видео */
+        margin: 0 auto; /* Центрирование */
+        padding: 20px;
+    }
+
+    /* Стили для видео */
+    video {
+        width: 100%; /* Видео занимает всю ширину контейнера */
+        height: auto; /* Высота подстраивается автоматически */
+        border-radius: 10px; /* Закругленные углы */
+    }
+</style>
+{% endblock %}

@@ -4,3 +4,7 @@ from django.shortcuts import render
 def home(request):
     # Рендерим шаблон index.html и возвращаем его как ответ на запрос
     return render(request, 'index.html')
+
+def meme(request):
+    # Рендерим шаблон meme.html и возвращаем его как ответ на запрос
+    return render(request, 'meme.html')

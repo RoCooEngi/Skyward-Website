@@ -8,139 +8,185 @@
     <style>
         /* Общие стили для body */
         body {
-            margin: 0; /* Убираем отступы по умолчанию */
-            font-family: Arial, sans-serif; /* Шрифт для всей страницы */
+            margin: 0;
+            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column; /* Располагаем элементы в колонку */
-            min-height: 100vh; /* Минимальная высота страницы — 100% высоты экрана */
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url("{% static 'wallpaper_main_2.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         /* Стили для шапки и подвала */
         .header, .footer {
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Градиентный фон */
-            color: white; /* Белый текст */
-            padding: 10px 20px; /* Внутренние отступы */
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
         }
 
         /* Стили для навигационной панели */
         .nav {
             display: flex;
-            align-items: center; /* Выравниваем элементы по вертикали */
-            gap: 50px; /* Расстояние между логотипом и ссылками */
+            align-items: center;
+            gap: 50px;
         }
 
         /* Стили для логотипа */
         .nav img {
-            height: 50px; /* Высота логотипа */
-            margin-right: 50px; /* Увеличиваем отступ справа от логотипа */
+            height: 50px;
+            margin-right: 50px;
         }
 
         /* Стили для ссылок в навигационной панели */
         .nav a {
-            color: white; /* Белый цвет текста */
-            text-decoration: none; /* Убираем подчеркивание */
-            font-size: 18px; /* Размер шрифта */
-            white-space: nowrap; /* Запрещаем перенос текста */
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            white-space: nowrap;
         }
 
         /* Стили для основного контента */
         .content {
-            background-color:rgb(255, 255, 255); /* Серый фон */
-            padding: 20px; /* Внутренние отступы */
-            flex: 1; /* Контент занимает все доступное пространство */
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            flex: 1;
         }
 
         /* Стили для подвала */
         .footer {
-            text-align: center; /* Центрируем текст */
-            padding: 20px; /* Внутренние отступы */
-            position: fixed; /* Фиксируем подвал */
-            bottom: 0; /* Прижимаем к низу */
-            width: 100%; /* Занимаем всю ширину */
+            text-align: center;
+            padding: 20px;
+            /*position: fixed;*/
+            bottom: 0;
+            width: 100%;
         }
 
         /* Стили для ссылок в подвале */
         .footer a {
-            color: white; /* Белый цвет текста */
-            text-decoration: none; /* Убираем подчеркивание */
-            margin: 0 10px; /* Отступы между ссылками */
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
         }
 
         /* Основной контейнер для текста и видео */
         .content-container {
             display: flex;
-            flex-direction: row; /* По умолчанию элементы в строку */
-            align-items: center; /* Выравниваем по вертикали */
-            justify-content: space-between; /* Распределяем пространство между элементами */
-            gap: 70px; /* Расстояние между текстом и видео */
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
             padding: 20px;
-            max-width: 1500px; /* Ограничиваем максимальную ширину */
-            margin: 0 auto; /* Центрируем контейнер */
-            width: 100%; /* Занимаем всю доступную ширину */
-            margin-top: 50px; /* Добавляем отступ сверху */
+            max-width: 1500px;
+            margin: 0 auto;
+            width: 100%;
+            margin-top: 50px;
         }
 
         /* Контейнер для текста */
         .text-container {
-            flex: 1; /* Текст занимает доступное пространство */
-            text-align: center; /* Центрируем текст */
-            min-width: 300px; /* Минимальная ширина текстового контейнера */
+            flex: 1;
+            text-align: center;
+            min-width: 300px;
+            position: relative; /* Для позиционирования рамки */
+            padding: 20px; /* Отступы внутри контейнера */
+            background: linear-gradient(135deg, rgb(194, 143, 249), rgb(128, 175, 255)); /* Полупрозрачный градиент */
+            border-radius: 20px; /* Скругленные углы */
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.3); /* Легкая тень для объема */
         }
 
         /* Контейнер для видео */
         .video-container {
-            flex: 1; /* Видео занимает доступное пространство */
-            max-width: 800px; /* Максимальная ширина видео */
-            min-width: 300px; /* Минимальная ширина видео */
+            flex: 1;
+            max-width: 800px;
+            min-width: 300px;
         }
 
         /* Стили для видео */
         video {
-            width: 100%; /* Видео занимает всю ширину контейнера */
-            height: auto; /* Высота автоматически подстраивается */
-            border-radius: 10px; /* Закругленные углы */
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Анимация для текста */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .text-container h1,
+        .text-container p {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .text-container p {
+            animation-delay: 0.5s;
+        }
+
+        /* Анимация для видео */
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .video-container {
+            opacity: 0;
+            animation: scaleIn 1s ease-out forwards;
+            animation-delay: 1s;
         }
 
         /* Адаптация для мобильных устройств */
         @media (max-width: 768px) {
             .nav {
-                flex-wrap: wrap; /* Разрешаем перенос элементов */
-                justify-content: center; /* Центрируем элементы */
-                gap: 20px; /* Уменьшаем расстояние между элементами */
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
             }
             .nav img {
-                margin-right: 0; /* Убираем отступ справа от логотипа */
+                margin-right: 0;
             }
             .nav a {
-                font-size: 16px; /* Уменьшаем размер шрифта */
+                font-size: 16px;
             }
             .content-container {
-                flex-direction: column; /* Элементы в колонку на мобильных */
-                gap: 20px; /* Уменьшаем расстояние между элементами */
-                margin-top: 20px; /* Уменьшаем отступ сверху для мобильных */
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 20px;
             }
             .text-container {
-                min-width: unset; /* Убираем минимальную ширину */
+                min-width: unset;
             }
             .video-container {
-                max-width: 100%; /* Видео занимает всю ширину */
-                min-width: unset; /* Убираем минимальную ширину */
+                max-width: 100%;
+                min-width: unset;
             }
         }
 
         /* Стили для десктопов */
         @media (min-width: 769px) {
-            /* Увеличиваем шрифт текста */
             .text-container h1 {
-                font-size: 36px; /* Размер заголовка */
+                font-size: 36px;
             }
             .text-container p {
-                font-size: 18px; /* Размер основного текста */
+                font-size: 18px;
             }
-
-            /* Увеличиваем размер видео */
             .video-container {
-                max-width: 800px; /* Увеличиваем максимальную ширину видео */
+                max-width: 800px;
             }
         }
     </style>
@@ -150,7 +196,7 @@
     <header class="header">
         <nav class="nav">
             <!-- Логотип как ссылка на главную страницу -->
-            <a href="{% url 'home' %}">
+            <a href="{% url 'meme' %}">
                 <img src="{% static 'logo.png' %}" alt="Logo">
             </a>
             <!-- Ссылки в навигационной панели -->
