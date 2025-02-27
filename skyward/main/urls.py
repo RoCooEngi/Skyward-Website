@@ -4,4 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),  # Главная страница
     path('meme', views.meme, name='meme'), # Meme
+    path('privacy', views.privacy, name='privacy_pdf'),
+    path('telegram', views.telegram, name='telegram'),
+    path('vk', views.vk, name='vk'),
 ]

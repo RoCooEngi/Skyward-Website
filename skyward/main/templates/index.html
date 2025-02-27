@@ -18,9 +18,42 @@
     </div>
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="{% static 'station_animation.mp4' %}" type="video/mp4">
+            <source src="{% static 'videos/station_animation.mp4' %}" type="video/mp4">
             Ваш браузер не поддерживает видео тег.
         </video>
+    </div>
+</div>
+
+<h2 class="target-audience-title">Целевая аудитория</h2>
+
+<div class="symbols-container">
+    <div class="symbols-left">
+        {% for i in "123" %}
+        <div class="symbol-text-pair">
+            <img src="{% static 'symbols/symbol'|add:i|add:'.png' %}" alt="Symbol {{ i }}">
+            {% if i == "1" %}
+            <p>Аварийно-спасательные службы (например, МЧС)</p>
+            {% elif i == "2" %}
+            <p>Энергетические компании и нефтегазовые корпорации</p>
+            {% else %}
+            <p>Телекоммуникационные компании</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="symbols-right">
+        {% for i in "456" %}
+        <div class="symbol-text-pair">
+            <img src="{% static 'symbols/symbol'|add:i|add:'.png' %}" alt="Symbol {{ i }}">
+            {% if i == "4" %}
+            <p>РЖД</p>
+            {% elif i == "5" %}
+            <p>Сельскохозяйственные предприятия</p>
+            {% else %}
+            <p>Строительные компании</p>
+            {% endif %}
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

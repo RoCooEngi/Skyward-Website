@@ -9,11 +9,11 @@
         /* Общие стили для body */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Brush Script MT, cursive;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-image: url("{% static 'wallpaper_main_2.jpg' %}");
+            background-image: url("{% static 'images/wallpaper_main.jpg' %}");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -56,18 +56,68 @@
 
         /* Стили для подвала */
         .footer {
-            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
             padding: 20px;
-            /*position: fixed;*/
-            bottom: 0;
             width: 100%;
+            bottom: 0;
         }
 
-        /* Стили для ссылок в подвале */
-        .footer a {
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Левая половина подвала */
+        .footer-left {
+            flex: 1; /* Занимает половину пространства */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Выравнивание по центру */
+            gap: 10px;
+        }
+
+        .footer-left a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+        }
+
+        /* Правая половина подвала */
+        .footer-right {
+            flex: 1; /* Занимает половину пространства */
+            display: flex;
+            justify-content: center; /* Выравнивание по центру */
+            align-items: center;
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Выравнивание по центру */
+            gap: 10px;
+        }
+
+        .contacts-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: auto;
+        }
+
+        .email {
+            font-size: 14px;
+            color: white;
         }
 
         /* Основной контейнер для текста и видео */
@@ -88,10 +138,11 @@
         .text-container {
             flex: 1;
             text-align: center;
+            color: white;
             min-width: 300px;
             position: relative; /* Для позиционирования рамки */
             padding: 20px; /* Отступы внутри контейнера */
-            background: linear-gradient(135deg, rgb(194, 143, 249), rgb(128, 175, 255)); /* Полупрозрачный градиент */
+            background: linear-gradient(135deg, rgb(156, 76, 241), rgb(28, 75, 157));
             border-radius: 20px; /* Скругленные углы */
             box-shadow: 0 0 20px rgba(106, 17, 203, 0.3); /* Легкая тень для объема */
         }
@@ -149,6 +200,74 @@
             animation: scaleIn 1s ease-out forwards;
             animation-delay: 1s;
         }
+        /* Стили для контейнера с символами и текстом */
+        .symbols-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Стили для левой и правой колонок */
+        .symbols-left, .symbols-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Стили для пары символ-текст */
+        .symbol-text-pair {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgb(156, 76, 241), rgb(28, 75, 157));
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+        }
+
+        /* Стили для изображения символа */
+        .symbol-text-pair img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Стили для текста рядом с символом */
+        .symbol-text-pair p {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Стили для заголовка "Целевая аудитория" */
+        .target-audience-title {
+            text-align: center;
+            color: white; /* Белый цвет текста */
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.5s; /* Задержка для анимации */
+            text-shadow: 
+                -2px -2px 0 #6a11cb, /* Фиолетовая тень вверх-влево */
+                2px -2px 0 #6a11cb,  /* Фиолетовая тень вверх-вправо */
+                -2px 2px 0 #6a11cb,  /* Фиолетовая тень вниз-влево */
+                2px 2px 0 #6a11cb;   /* Фиолетовая тень вниз-вправо */
+        }
+
+        /* Анимация для пар символ-текст */
+        .symbols-container {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 2s; /* Задержка для анимации */
+        }
 
         /* Адаптация для мобильных устройств */
         @media (max-width: 768px) {
@@ -175,6 +294,33 @@
                 max-width: 100%;
                 min-width: unset;
             }
+            .symbols-container {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+            }
+        
+            .symbols-left, .symbols-right {
+                gap: 10px;
+            }
+        
+            .symbol-text-pair {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .symbol-text-pair img {
+                margin-bottom: 10px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        
+            .footer-left, .footer-right {
+                align-items: center;
+                text-align: center;
+            }
         }
 
         /* Стили для десктопов */
@@ -188,6 +334,9 @@
             .video-container {
                 max-width: 800px;
             }
+            .symbol-text-pair {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -195,11 +344,9 @@
     <!-- Шапка -->
     <header class="header">
         <nav class="nav">
-            <!-- Логотип как ссылка на главную страницу -->
             <a href="{% url 'meme' %}">
-                <img src="{% static 'logo.png' %}" alt="Logo">
+                <img src="{% static 'images/logo_spacex.png' %}" alt="Logo">
             </a>
-            <!-- Ссылки в навигационной панели -->
             <a href="{% url 'home' %}">Главная</a>
             <a href="#">Решения</a>
             <a href="#">О нас</a>
@@ -214,8 +361,25 @@
 
     <!-- Подвал -->
     <footer class="footer">
-        <div>Skyward &copy; {% now "Y" %}</div>
-        <a href="#">Политика конфиденциальности</a>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div>Skyward &copy; {% now "Y" %}</div>
+                <a href="{% url 'privacy_pdf' %}" target="_blank">Политика конфиденциальности</a>
+            </div>
+            <div class="footer-right">
+                <div class="contacts">
+                    <div class="social-icons">
+                        <a href={% url "telegram" %}>
+                            <img src="{% static 'images/Telegram_Logo.png' %}" alt="Telegram">
+                        </a>
+                        <a href={% url "vk" %}>
+                            <img src="{% static 'images/VK_Logo.png' %}" alt="VK">
+                        </a>
+                    </div>
+                    <div class="email">usachevaVA@gmail.com</div>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
