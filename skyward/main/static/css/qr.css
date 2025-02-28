@@ -1,0 +1,19 @@
+/* Контейнер для QR-кода и текста */
+.qr-container {
+    text-align: center;
+}
+
+/* Стили для изображения QR-кода */
+.qr-container img {
+    width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Стили для текста */
+.qr-container p {
+    font-family: Brush Script MT, cursive;
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}

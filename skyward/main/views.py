@@ -8,10 +8,6 @@ def home(request):
     # Рендерим шаблон index.html и возвращаем его как ответ на запрос
     return render(request, 'index.html')
 
-def meme(request):
-    # Рендерим шаблон meme.html и возвращаем его как ответ на запрос
-    return render(request, 'meme.html')
-
 def privacy(request):
     # Открываем pdf документ
     file_path = os.path.join(settings.BASE_DIR, 'main/templates', 'privacy.pdf')
