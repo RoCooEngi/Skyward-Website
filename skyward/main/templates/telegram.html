@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/qr.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="qr-container">
+    <!-- Изображение QR-кода -->
+    <a href="https://t.me/apigeyle" target="_blank">
+        <img src="{% static 'images/qr_code_telegram.png' %}" alt="QR Code Telegram">
+    </a>
+    <!-- Текст под QR-кодом -->
+    <p>Нажмите для продолжения</p>
+</div>
+{% endblock %}

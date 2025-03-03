@@ -1,0 +1,53 @@
+/* Стили для шапки */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 10px 10px;
+    min-width: 400px;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Стили для навигационной панели */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+/* Адаптация для десктопных устройств */
+@media (min-width: 769px){
+    .nav {
+        gap: 50px;
+    }
+    .nav a {
+        font-size: 18px;
+    }
+    .nav img {
+        height: 50px;
+        margin-right: 50px;
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px){
+    .nav {
+        gap: 20px;
+    }
+    .nav img {
+        height: 40px;
+        margin-right: -10px;
+        margin-left: -5px;
+    }
+}

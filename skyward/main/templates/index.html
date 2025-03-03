@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-container">
+    <div class="text-container">
+        <h1>Проект дроностанции Skyward</h1>
+        <p>
+            Главной проблемой всех БАС является крайне долгое время зарядки,
+            из-за которого БПЛА не может выполнять полеты с желаемой частотой.
+            Задачей нашей станции является быстрая автоматическая замена АКБ
+            с минимальным временем простоя БПЛА и возможностью одновременной
+            зарядки нескольких аккумуляторов. Техническим результатом является
+            сокращение времени простоя БПЛА на зарядку, увеличение эффективности
+            использования БПЛА за счет быстрой замены аккумуляторов, а также
+            возможность обслуживания нескольких БПЛА одной станцией.
+        </p>
+    </div>
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="{% static 'videos/station_animation.mp4' %}" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+    </div>
+</div>
+
+<h2 class="target-audience-title">Целевая аудитория</h2>
+
+<div class="symbols-container">
+    <div class="symbols-left">
+        {% for i in "123" %}
+        <div class="symbol-text-pair">
+            <img src="{% static 'symbols/symbol'|add:i|add:'.png' %}" alt="Symbol {{ i }}">
+            {% if i == "1" %}
+            <p>Аварийно-спасательные службы (например, МЧС)</p>
+            {% elif i == "2" %}
+            <p>Энергетические компании и нефтегазовые корпорации</p>
+            {% else %}
+            <p>Телекоммуникационные компании</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="symbols-right">
+        {% for i in "456" %}
+        <div class="symbol-text-pair">
+            <img src="{% static 'symbols/symbol'|add:i|add:'.png' %}" alt="Symbol {{ i }}">
+            {% if i == "4" %}
+            <p>РЖД</p>
+            {% elif i == "5" %}
+            <p>Сельскохозяйственные предприятия</p>
+            {% else %}
+            <p>Строительные компании</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
