@@ -1,10 +1,3 @@
-/* Основной контент */
-.content {
-    padding: 20px;
-    flex: 1;
-    padding-top: 80px;
-}
-
 /* Основной контейнер для текста и видео */
 .content-container {
     display: flex;
@@ -15,7 +8,8 @@
     padding: 20px;
     margin: 0 auto;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
+    max-width: 1300px;
 }
 
 /* Контейнер для текста */
@@ -31,34 +25,55 @@
     box-shadow: 0 0 20px rgba(106, 17, 203, 0.3);
 }
 
+.text-container h1 {
+    font-size: 36px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.text-container h2 {
+    font-style: oblique;
+    font-size: 46px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
 /* Контейнер для видео */
-.video-container {
+.image-prototype-container {
     flex: 1;
-    max-width: 800px;
     min-width: 300px;
     opacity: 0;
     animation: scaleIn 1s ease-out forwards;
     animation-delay: 1s;
 }
 
-/* Стили для видео */
-video {
+/* Стили для изображения */
+.image-prototype-container img {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-.text-container h1, .text-container p {
+/* Стили для девиза */
+.motto-container {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(156, 76, 241);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
-}
-
-.text-container p {
-    animation-delay: 0.5s;
+    animation-delay: 1.5s;
 }
 
 /* Стили для заголовка "Целевая аудитория" */
-.target-audience-title {
+.services-title, .target-audience-title {
     text-align: center;
     color: rgb(156, 76, 241);
     font-size: 32px;
@@ -69,6 +84,69 @@ video {
     animation-delay: 1.5s;
 }
 
+/* Стили для контейнера с услугами */
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px 60px;
+    margin: 0 auto; /* Центрирование контейнера */
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.services-left-container, .services-center-container, .services-right-container {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    margin: 0 auto;
+    align-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+/* Стили для ячеек */
+.station, .drone, .drone-modernization,
+.spare-parts, .software-documentary, .setup-delivery {    
+    height: 200px; /* Фиксированная высота ячейки */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центрирование содержимого по вертикали */
+    padding: 15px;
+    gap: 10px;
+    background: linear-gradient(135deg, rgb(156, 76, 241), rgb(28, 75, 157));
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+    box-sizing: border-box; /* Учитываем padding в общей ширине и высоте */
+}
+
+/* Стили для текста */
+.station p, .drone p, .drone-modernization p,
+.spare-parts p, .software-documentary p, .setup-delivery p {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+}
+
+/* Стили для изображений */
+.station img, .drone img, .drone-modernization img,
+.spare-parts img, .software-documentary img, .setup-delivery img {
+    width: 120px;
+    height: 120px;
+    /* flex-shrink: 0; Изображения не сжимаются */
+}
+
+
 /* Стили для контейнера с символами и текстом */
 .symbols-container {
     display: flex;
@@ -77,7 +155,7 @@ video {
     padding: 20px;
     margin: 0 auto;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 2s;
@@ -100,12 +178,16 @@ video {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+    justify-content: flex-start; /* Выравнивание по левому краю */
+    height: 100px; /* Фиксированная высота */
+    box-sizing: border-box; /* Учитываем padding в общей высоте */
 }
 
 /* Стили для изображения символа */
 .symbol-text-pair img {
     width: 50px;
     height: 50px;
+    flex-shrink: 0; /* Изображение не сжимается */
 }
 
 /* Стили для текста рядом с символом */
@@ -113,23 +195,10 @@ video {
     color: white;
     margin: 0;
     font-size: 18px;
-    text-align: center;
-}
-
-/* Адаптация для десктопных устройств */
-@media (min-width: 769px){
-    .text-container h1 {
-        font-size: 36px;
-    }
-    .text-container p {
-        font-size: 18px;
-    }
-    .video-container {
-        max-width: 800px;
-    }
-    .symbol-text-pair {
-        justify-content: left;
-    }
+    text-align: left;
+    flex-grow: 1; /* Текст занимает доступное пространство */
+    display: flex;
+    align-items: center; /* Центрирование текста по вертикали */
 }
 
 /* Адаптация для мобильных устройств */
@@ -141,18 +210,32 @@ video {
     }
     .text-container {
         min-width: unset;
+        padding: 20px 10px;
     }
-    .video-container {
+    .image-prototype-containerner {
         max-width: 100%;
         min-width: unset;
     }
-    .target-audience-title {
-        margin-left: 40px;
+    .text-container h1 {
+        font-size: 26px;
     }
+    .text-container h2 {
+        font-size: 36px;
+    }
+    .motto-container {
+        font-size: 18px;
+    }
+    .services-container {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+
     .symbols-container {
         flex-direction: column;
         gap: 10px;
         margin-top: 20px;
+        padding: 20px 10px;
     }
     .symbols-left, .symbols-right {
         gap: 10px;

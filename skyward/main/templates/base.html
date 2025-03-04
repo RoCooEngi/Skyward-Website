@@ -3,12 +3,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{% block title %}Skyward{% endblock %}</title>
     <link rel="stylesheet" href={% static 'css/base.css' %}>
+    <link rel="stylesheet" href={% static 'css/animations.css' %}>
     <link rel="stylesheet" href={% static "css/partials/_footer.css" %}>
     <link rel="stylesheet" href={% static "css/partials/_header.css" %}>
-    <link rel="stylesheet" href={% static "css/index.css" %}>
     {% block extra_css %}{% endblock %}
 </head>
 <body>

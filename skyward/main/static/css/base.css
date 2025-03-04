@@ -1,13 +1,43 @@
+/* Набор шрифтов */
+@font-face {
+    font-family: 'AlegreyaSans';
+    src:
+        url('fonts/Alegreya_Sans/AlegreyaSans-Black.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-BlackItalic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-BoldItalic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-ExtraBoldItalic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Italic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Light.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-LightItalic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Medium.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-MediumItalic.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-Thin.ttf') format('truetype'),
+        url('fonts/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* Ограничение ширины body и контента */
 body {
     margin: 0;
-    font-family: Brush Script MT, cursive;
+    font-family: 'AlegreyaSans', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     scroll-behavior: smooth;
     width: 100vw;
     overflow-x: hidden;
+}
+
+/* Основной контент */
+.content {
+    padding: 20px;
+    flex: 1;
+    padding-top: 80px;
 }
 
 /* Ограничение ширины для всех блоков */
