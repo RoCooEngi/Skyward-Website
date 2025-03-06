@@ -1,6 +1,6 @@
 // Функция для подгонки ширины контента
 function adjustContentWidth() {
-    const contentContainers = document.querySelectorAll('.footer-content, .nav, .content-container, .symbols-container');
+    const contentContainers = document.querySelectorAll('.footer-content, .nav, .content-container, .services-container, .gallery-container, .symbols-container');
     const viewportWidth = window.innerWidth;
 
     contentContainers.forEach(container => {
